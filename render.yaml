@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: airpak-express-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node src/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: SUPPORT_AI_URL
+        value: https://api.openai.com/v1/chat/completions
+      # Add these via the Render dashboard:
+      # - AI_API_KEY: your OpenAI key
+      # - STRIPE_SECRET_KEY: sk_live_...
+      # - STRIPE_PUBLISHABLE_KEY: pk_live_...
+      # - WALLET_P12_PASSWORD: ...
+      # - WALLET_P12_BASE64: ...
+      # - WALLET_TEAM_ID: ...
+      # - WALLET_PASS_TYPE_ID: ...
+    autoDeploy: true

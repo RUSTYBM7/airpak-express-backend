@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "name": "airpak-express-backend",
+  "builds": [
+    { "src": "api/*.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/health", "dest": "/api/health.js" },
+    { "src": "/api/version", "dest": "/api/version.js" },
+    { "src": "/api/support-ai", "dest": "/api/support-ai.js" },
+    { "src": "/api/chat", "dest": "/api/chat.js" },
+    { "src": "/api/admin/chat", "dest": "/api/admin-chat.js" },
+    { "src": "/api/v1/payment_intents", "dest": "/api/payment-intents.js" },
+    { "src": "/api/v1/wallet/passes", "dest": "/api/wallet-passes.js" },
+    { "src": "/api/live/online", "dest": "/api/live-online.js" },
+    { "src": "/api/live/users", "dest": "/api/live-users.js" }
+  ],
+  "env": { "NODE_ENV": "production", "ALLOWED_ORIGINS": "*" }
+}
